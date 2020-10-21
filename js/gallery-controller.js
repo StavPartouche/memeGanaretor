@@ -50,6 +50,11 @@ function onAddLineClick(){
     renderCanvas()
 }
 
+function onDeleteLineClick(){
+    deleteLine()
+    renderCanvas()
+}
+
 function onDownloadClick(elLink){
     var img = new Image()
     img.src = `img/${gMeme.selectedImgId}.jpg`;

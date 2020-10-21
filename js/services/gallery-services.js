@@ -1,29 +1,11 @@
 const gMemeFont = 'Impact'
+const STORAGE_KEY = 'memesDB';
 
 var gCanvas;
 var gCtx;
 var gSavedMemes = []
 
-var gImgs = [
-    { id: 1, url: './img/1.jpg' },
-    { id: 2, url: './img/2.jpg' },
-    { id: 3, url: './img/3.jpg' },
-    { id: 4, url: './img/4.jpg' },
-    { id: 5, url: './img/5.jpg' },
-    { id: 6, url: './img/6.jpg' },
-    { id: 7, url: './img/7.jpg' },
-    { id: 8, url: './img/8.jpg' },
-    { id: 9, url: './img/9.jpg' },
-    { id: 10, url: './img/10.jpg' },
-    { id: 11, url: './img/11.jpg' },
-    { id: 12, url: './img/12.jpg' },
-    { id: 13, url: './img/13.jpg' },
-    { id: 14, url: './img/14.jpg' },
-    { id: 15, url: './img/15.jpg' },
-    { id: 16, url: './img/16.jpg' },
-    { id: 17, url: './img/17.jpg' },
-    { id: 18, url: './img/18.jpg' },
-]
+var gImgs = []
 
 var gMeme = {
     selectedImgId: 0,
@@ -41,6 +23,13 @@ var gMeme = {
 function init() {
     gCanvas = document.querySelector('#main-canvas')
     gCtx = gCanvas.getContext('2d')
+    for(var i = 1 ; i < 19; i++){
+        var newImg = {
+            id: i,
+            url: `./img/${i}.jpg`
+        }
+        gImgs.push(newImg)
+    }
 }
 
 function drawImg(id) {
@@ -85,10 +74,10 @@ function changeFontSize(num) {
 }
 
 function changeLineLoc(num) {
-    var textHeight = gMeme.lines[gMeme.selectedLineIdx].height
+    var textHeight = gMeme.lines[gMeme.selectedLineIdx].y
     if (num) textHeight -= 5;
     else textHeight += 5;
-    gMeme.lines[gMeme.selectedLineIdx].height = textHeight
+    gMeme.lines[gMeme.selectedLineIdx].y = textHeight
 }
 
 function addLine() {
@@ -101,6 +90,23 @@ function addLine() {
     gMeme.lines.push(newLine)
     gMeme.selectedLineIdx = gMeme.lines.length - 1
     drawFocus()
+}
+
+function deleteLine(){
+    var idx = gMeme.selectedLineIdx;
+    gMeme.lines.splice(idx, 1)
+    console.log(gMeme.lines);
+    if(!gMeme.lines.length){
+        gMeme.lines = [
+            {
+                txt: '',
+                size: 48,
+                y: 60,
+                x: 250
+            }
+        ]
+    }
+    console.log(gMeme.lines);
 }
 
 function changeLineFocus() {
@@ -126,13 +132,8 @@ function drawFocus() {
 function saveMeme() {
     var newMeme = {
         imgId: gMeme.selectedImgId,
-        lines: gMeme.lines.forEach(line => {
-            txt = line.txt,
-            size = line.size,
-            y = line.y,
-            x = line.x
-        })
+        lines: gMeme.lines
     }
     gSavedMemes.push(newMeme)
-    console.log(gSavedMemes);
+    saveToStorage(STORAGE_KEY, gSavedMemes)
 }

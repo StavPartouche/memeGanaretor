@@ -35,7 +35,7 @@
             <button class="more-btn">more</button>
         </section>
 
-        <section class="editor-container flex">
+        <section class="editor-container hide">
             <div class="canvas-container ">
                 <canvas id="main-canvas" width="450" height="450"></canvas>
             </div>
@@ -45,6 +45,7 @@
                 <div class="">
                     <button class="change-line-btn" onclick="onChangeLineFocus()"><img class="arrow-icon" src="./img/icons/arrow-up.png" alt=""><img class="arrow-icon" src="./img/icons/arrow-down.png" alt=""></button>
                     <button class="add-line-btn" onclick="onAddLineClick()">+</button>
+                    <button class="delete-line-btn" onclick="onDeleteLineClick()"><img class="trash-icon" src="./img/icons/trash.png" alt=""></button>
                 </div>
                 <div>
                     <button class="font-size-btn" onclick="onChangeFontSize(1)"><span>A</span>+</button>
@@ -54,7 +55,7 @@
                 </div>
                 <div>
                     <a class="download-btn" href="#" onclick="onDownloadClick(this)" download="">Download</a>
-                    <button onclick="onSaveClick()">Save</button>
+                    <button class="save-btn" onclick="onSaveClick()">Save</button>
                 </div>
                 
             </div>
@@ -71,6 +72,7 @@
         <small>© All Rights Reserved</small>
     </footer>
 
+    <script src="js/services/storage-service.js"></script>
     <script src="js/services/upload-download-service.js"></script>
     <script src="js/services/gallery-services.js"></script>
     <script src="js/gallery-controller.js"></script>
