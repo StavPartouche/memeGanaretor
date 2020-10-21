@@ -1,0 +1,115 @@
+@font-face {
+  font-family: Poppins;
+  src: url(../fonts/Poppins-Medium.ttf);
+}
+
+@font-face {
+  font-family: Poppins300;
+  src: url(../fonts/Poppins-Light.ttf);
+}
+
+@font-face {
+  font-family: Logo;
+  src: url(../fonts/ShadowsIntoLight-Regular.ttf);
+}
+
+html {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  background-color: #22252c;
+}
+
+img {
+  width: 200px;
+  height: 173px;
+  border-radius: 5px;
+}
+
+.hide {
+  display: none;
+}
+
+.flex {
+  display: flex;
+}
+
+.container {
+  max-width: 98%;
+  margin: 0 auto;
+}
+
+.clean-list {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  border: none;
+}
+
+/* header */
+
+.header-container {
+  width: 1257px;
+  height: 73px;
+  border-radius: 37px;
+  background-color: #5970c1;
+  background-image: linear-gradient(-86deg, #33be6d 0%, #0c98b9 100%);
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 16px;
+  margin-bottom: 16px;
+}
+
+.main-nav a {
+  text-decoration: none;
+  margin: 11px;
+  color: #ffffff;
+  font-size: 1.3125rem;
+  font-family: Poppins;
+  padding: 0 10px;
+}
+
+.main-nav a:active {
+  width: 116px;
+  height: 40px;
+  box-shadow: 0 3px 6px 1px rgba(0, 0, 0, 0.15);
+  border-radius: 20px;
+  background-color: #fefefe;
+  color: #21ac91;
+  padding: 0 10px;
+}
+
+.logo {
+  font-family: Logo;
+  font-size: 2rem;
+  margin-left: 20px;
+  text-transform: uppercase;
+}
+
+/* main */
+
+.main-container {
+    
+border-radius: 10px;
+  background-color: #383b42;
+  padding-bottom: 20px;
+  }
+
+.saved-memes {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, 200px);
+  grid-gap: 30px;
+  margin-left: 94px;
+  padding-top: 20px;
+}
+
+/* footer */
+
+.footer-container {
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+}

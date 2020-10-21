@@ -3,7 +3,7 @@ const STORAGE_KEY = 'memesDB';
 
 var gCanvas;
 var gCtx;
-var gSavedMemes = []
+var gSavedMemes
 
 var gImgs = []
 
@@ -15,21 +15,19 @@ var gMeme = {
             txt: '',
             size: 48,
             y: 60,
-            x: 250
+            x: 225
         }
     ]
 }
 
 function init() {
+    gSavedMemes = loadFromStorage(STORAGE_KEY)
+    if(!gSavedMemes) gSavedMemes = [];
+    
     gCanvas = document.querySelector('#main-canvas')
     gCtx = gCanvas.getContext('2d')
-    for(var i = 1 ; i < 19; i++){
-        var newImg = {
-            id: i,
-            url: `./img/${i}.jpg`
-        }
-        gImgs.push(newImg)
-    }
+    
+    creatImgsArr()
 }
 
 function drawImg(id) {
@@ -40,6 +38,7 @@ function drawImg(id) {
         drawText()
         drawFocus()
     }
+    
 }
 
 function drawText() {
@@ -130,10 +129,17 @@ function drawFocus() {
 }
 
 function saveMeme() {
-    var newMeme = {
-        imgId: gMeme.selectedImgId,
-        lines: gMeme.lines
-    }
-    gSavedMemes.push(newMeme)
+    var newMemeUrl = gCanvas.toDataURL()
+    gSavedMemes.push(newMemeUrl)
     saveToStorage(STORAGE_KEY, gSavedMemes)
+}
+
+function creatImgsArr(){
+    for(var i = 1 ; i < 19; i++){
+        var newImg = {
+            id: i,
+            url: `./img/${i}.jpg`
+        }
+        gImgs.push(newImg)
+    }
 }
