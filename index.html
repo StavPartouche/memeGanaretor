@@ -13,6 +13,13 @@
         <canvas id="main-canvas" width="500" height="500"></canvas>
     </div>
 
+    <input class="txtInput" type="text" onchange="onUpdateMemeTxt(value)">
+
+    <section class="gallery-container">
+        <img onclick="onSelectImg(this)" src="./img/1.jpg" alt="" id="1">
+        <img onclick="onSelectImg(this)" src="./img/2.jpg" alt="" id="2">
+    </section>
+
     <script src="js/services/gallery-services.js"></script>
     <script src="js/gallery-controller.js"></script>
 </body>

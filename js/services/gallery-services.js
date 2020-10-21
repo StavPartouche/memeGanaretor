@@ -4,11 +4,11 @@ var gCanvas;
 var gCtx;
 
 var gMeme = {
-    selectedImgId: 1,
+    selectedImgId: 0,
     selectedLineIdx: 0,
     lines: [
         {
-            txt: 'I never eat Falafel',
+            txt: '',
         }
     ]
 }   
@@ -30,9 +30,18 @@ function drawImg(id,txt) {
 function drawText(text) {
     gCtx.strokeStyle = 'black'
     gCtx.fillStyle = 'white'
-    gCtx.lineWidth = '2'
+    gCtx.lineWidth = '1'
     gCtx.font = `48px ${gMemeFont}`
-    gCtx.textAlign = 'start'
-    gCtx.fillText(text, 80, 60)
-    gCtx.strokeText(text, 0, 0)
+    gCtx.textAlign = 'center'
+    gCtx.fillText(text, 250, 60)
+    gCtx.strokeText(text, 250, 60)
+}
+
+function updateMemeTxt(txt){
+    gMeme.lines[0].txt = txt
+    console.log(gMeme.lines[0].txt);
+}
+
+function selectImg(imgID){
+    gMeme.selectedImgId = imgID;
 }

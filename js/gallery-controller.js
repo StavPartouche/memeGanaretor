@@ -1,6 +1,6 @@
 function onInit(){
     init();
-    renderCanvas();
+    // renderCanvas();
 }
 
 function renderCanvas(){
@@ -9,4 +9,13 @@ function renderCanvas(){
     drawImg(imgID, imgTxt)
 }
 
+function onUpdateMemeTxt(value){
+    updateMemeTxt(value);
+    renderCanvas()
+}
+
+function onSelectImg(el){
+    selectImg(el.id)
+    renderCanvas()
+}
 
