@@ -1,10 +1,20 @@
 function onInit(){
     init();
+    renderGallery()
 }
 
 function renderCanvas(){
     var imgID = gMeme.selectedImgId
     drawImg(imgID)
+}
+
+function renderGallery(){
+    var strHtml = '';
+    gImgs.forEach(img => {
+        strHtml += `<img onclick="onSelectImg(this)" src=${img.url} alt="" id="${img.id}">`
+    })
+    var elGallery = document.querySelector('.gallery-container');
+    elGallery.innerHTML = strHtml
 }
 
 function onUpdateMemeTxt(value){
