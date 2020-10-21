@@ -1,12 +1,10 @@
 function onInit(){
     init();
-    // renderCanvas();
 }
 
 function renderCanvas(){
     var imgID = gMeme.selectedImgId
-    var imgTxt = gMeme.lines[0].txt
-    drawImg(imgID, imgTxt)
+    drawImg(imgID)
 }
 
 function onUpdateMemeTxt(value){
@@ -15,7 +13,30 @@ function onUpdateMemeTxt(value){
 }
 
 function onSelectImg(el){
+    var elEditorContainer = document.querySelector('.editor-container')
+    elEditorContainer.classList.remove('hide')
+    elEditorContainer.classList.add('flex')
     selectImg(el.id)
+    renderCanvas()
+}
+
+function onChangeFontSize(num){
+    changeFontSize(num)
+    renderCanvas()
+}
+
+function onChangeLineLoc(num){
+    changeLineLoc(num)
+    renderCanvas()
+}
+
+function onChangeLineFocus(){
+    changeLineFocus();
+    renderCanvas()
+}
+
+function onAddLineClick(){
+    addLine();
     renderCanvas()
 }
 

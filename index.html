@@ -9,11 +9,21 @@
 <body onload="onInit()">
     <h1>Gallery</h1>
 
-    <div class="canvas-container">
-        <canvas id="main-canvas" width="500" height="500"></canvas>
+    <div class="editor-container hide">
+        <div class="canvas-container ">
+            <canvas id="main-canvas" width="500" height="500"></canvas>
+        </div>
+    
+        <div class="editor">
+            <input class="txtInput" type="text" onchange="onUpdateMemeTxt(value)">
+            <button onclick="onChangeFontSize(1)">+</button>
+            <button onclick="onChangeFontSize(0)">-</button>
+            <button onclick="onChangeLineLoc(1)">↑</button>
+            <button onclick="onChangeLineLoc(0)">↓</button>
+            <button onclick="onAddLineClick()">add line</button>
+            <button onclick="onChangeLineFocus()">⇅</button>
+        </div>
     </div>
-
-    <input class="txtInput" type="text" onchange="onUpdateMemeTxt(value)">
 
     <section class="gallery-container">
         <img onclick="onSelectImg(this)" src="./img/1.jpg" alt="" id="1">

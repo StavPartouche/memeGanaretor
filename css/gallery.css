@@ -17,6 +17,19 @@ img{
     height: 80px;
 }
 
+.hide{
+    display: none;
+}
+
+.flex{
+    display: flex;
+}
+
+.editor-container{
+    justify-content: center;
+    align-items: center;
+}
+
 .gallery-container{
     display: grid;
     grid-template-columns: repeat(auto-fit, 80px);
