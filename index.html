@@ -6,8 +6,12 @@
     <title>Document</title>
     <link rel="stylesheet" href="css/gallery.css">
 </head>
-<body>
+<body onload="onInit()">
     <h1>Gallery</h1>
+
+    <div class="canvas-container">
+        <canvas id="main-canvas" width="500" height="500"></canvas>
+    </div>
 
     <script src="js/services/gallery-services.js"></script>
     <script src="js/gallery-controller.js"></script>
