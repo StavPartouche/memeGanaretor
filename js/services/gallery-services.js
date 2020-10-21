@@ -51,7 +51,7 @@ function drawImg(id) {
     }
 }
 
-function drawText(text) {
+function drawText() {
     gMeme.lines.forEach(line =>{
         var fontSize = line.size
     var textHeight = line.height
