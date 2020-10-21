@@ -33,7 +33,6 @@ function doUploadImg(elForm, onSuccess) {
 
 function downloadCanvas(elLink) {
     const data = gCanvas.toDataURL()
-    console.log(data);
     elLink.href = data
     elLink.download = 'my meme.jpg'
 }
