@@ -92,7 +92,7 @@ img {
 .main-container {
   border-radius: 10px;
   background-color: #383b42;
-  padding: 20px;
+  padding-bottom: 20px;
 }
 
 /* main-search area */
@@ -223,4 +223,17 @@ background-image: linear-gradient(-38deg, #66c4dc 0%, #40b1ce 50%, #0c98bb 100%)
   justify-content: center;
   align-items: center;
   padding: 20px;
+}
+
+@media (max-width: 800px){
+    .editor-container{
+        flex-direction: column;
+    }
+    canvas{
+        margin-bottom: 10px;
+    }
+    
+    .editor{
+        width: 80%;
+    }
 }
