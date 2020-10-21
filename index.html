@@ -3,31 +3,65 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Meme Generator</title>
     <link rel="stylesheet" href="css/gallery.css">
 </head>
 <body onload="onInit()">
-    <h1>Gallery</h1>
-
-    <div class="editor-container hide">
-        <div class="canvas-container ">
-            <canvas id="main-canvas" width="500" height="500"></canvas>
-        </div>
     
-        <div class="editor">
-            <input class="txtInput" type="text" onchange="onUpdateMemeTxt(value)">
-            <button onclick="onChangeFontSize(1)">+</button>
-            <button onclick="onChangeFontSize(0)">-</button>
-            <button onclick="onChangeLineLoc(1)">↑</button>
-            <button onclick="onChangeLineLoc(0)">↓</button>
-            <button onclick="onAddLineClick()">add line</button>
-            <button onclick="onChangeLineFocus()">⇅</button>
-            <a href="#" onclick="onDownloadClick(this)" download="">download</a>
-        </div>
-    </div>
+    <header>
+        <div class="header-container container flex">
+            <div class="logo">memegen</div>
+    
+            <ul class="main-nav clean-list flex">
+                <li><a href="#">Gallery</a></li>
+                <li><a href="#">Memes</a></li>
+                <li><a href="#">About</a></li>
+            </ul>
 
-    <section class="gallery-container">
-    </section>
+            <button class="side-bar-btn hide" onclick="toggleMenu()">☰</button>
+        </div>
+    </header>
+
+    <main class="main-container container">
+        <section class="search-container flex">
+            <input class="search-bar" type="text" placeholder="Search">
+            <ul class="word-list flex clean-list">
+                <li>word</li>
+                <li>word</li>
+                <li>word</li>
+                <li>word</li>
+                 <li>word</li>
+            </ul>
+            <button class="more-btn">more</button>
+        </section>
+
+        <section class="editor-container hide">
+            <div class="canvas-container ">
+                <canvas id="main-canvas" width="500" height="500"></canvas>
+            </div>
+        
+            <div class="editor">
+                <input class="txtInput" type="text" onchange="onUpdateMemeTxt(value)">
+                <button onclick="onChangeFontSize(1)">+</button>
+                <button onclick="onChangeFontSize(0)">-</button>
+                <button onclick="onChangeLineLoc(1)">↑</button>
+                <button onclick="onChangeLineLoc(0)">↓</button>
+                <button onclick="onAddLineClick()">add line</button>
+                <button onclick="onChangeLineFocus()">⇅</button>
+                <a href="#" onclick="onDownloadClick(this)" download="">download</a>
+            </div>
+        </section>
+    
+        <section class="gallery-container">
+            <div class="gallery">
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer-container flex">
+        <div class="logo">memegen</div>
+        <small>© All Rights Reserved</small>
+    </footer>
 
     <script src="js/services/upload-download-service.js"></script>
     <script src="js/services/gallery-services.js"></script>

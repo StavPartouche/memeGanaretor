@@ -13,7 +13,7 @@ function renderGallery(){
     gImgs.forEach(img => {
         strHtml += `<img onclick="onSelectImg(this)" src=${img.url} alt="" id="${img.id}">`
     })
-    var elGallery = document.querySelector('.gallery-container');
+    var elGallery = document.querySelector('.gallery');
     elGallery.innerHTML = strHtml
 }
 
