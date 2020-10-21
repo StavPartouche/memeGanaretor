@@ -92,7 +92,7 @@ function addLine() {
     var newLine = {
         txt: '',
         size: 48,
-        height: (gMeme.lines.length === 1) ? 450 : 225
+        height: (gMeme.lines.length === 1) ? 400 : 225
     }
     gMeme.lines.push(newLine)
     gMeme.selectedLineIdx = gMeme.lines.length - 1

@@ -24,7 +24,7 @@
 
     <main class="main-container container">
         <section class="search-container flex">
-            <input class="search-bar" type="text" placeholder="Search">
+            <input class="search-bar" type="text" placeholder="        Search">
             <ul class="word-list flex clean-list">
                 <li>word</li>
                 <li>word</li>
@@ -37,17 +37,21 @@
 
         <section class="editor-container hide">
             <div class="canvas-container ">
-                <canvas id="main-canvas" width="500" height="500"></canvas>
+                <canvas id="main-canvas" width="450" height="450"></canvas>
             </div>
         
-            <div class="editor">
-                <input class="txtInput" type="text" onchange="onUpdateMemeTxt(value)">
-                <button onclick="onChangeFontSize(1)">+</button>
-                <button onclick="onChangeFontSize(0)">-</button>
-                <button onclick="onChangeLineLoc(1)">↑</button>
-                <button onclick="onChangeLineLoc(0)">↓</button>
-                <button onclick="onAddLineClick()">add line</button>
-                <button onclick="onChangeLineFocus()">⇅</button>
+            <div class="editor flex">
+                <input class="txt-input" type="text" onchange="onUpdateMemeTxt(value)">
+                <div class="">
+                    <button class="change-line-btn" onclick="onChangeLineFocus()"><img class="arrow-icon" src="./img/icons/arrow-up.png" alt=""><img class="arrow-icon" src="./img/icons/arrow-down.png" alt=""></button>
+                    <button class="add-line-btn" onclick="onAddLineClick()">+</button>
+                </div>
+                <div>
+                    <button onclick="onChangeFontSize(1)">A+</button>
+                    <button onclick="onChangeFontSize(0)">A-</button>
+                    <button onclick="onChangeLineLoc(1)">↑</button>
+                    <button onclick="onChangeLineLoc(0)">↓</button>
+                </div>
                 <a href="#" onclick="onDownloadClick(this)" download="">download</a>
             </div>
         </section>

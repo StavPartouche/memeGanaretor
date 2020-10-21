@@ -3,9 +3,9 @@
   src: url(../fonts/Poppins-Medium.ttf);
 }
 
-@font-face{
-    font-family: Poppins300;
-    src: url(../fonts/Poppins-Light.ttf);
+@font-face {
+  font-family: Poppins300;
+  src: url(../fonts/Poppins-Light.ttf);
 }
 
 @font-face {
@@ -20,12 +20,6 @@ html {
 body {
   margin: 0;
   background-color: #22252c;
-}
-
-canvas {
-  display: block;
-  border: 1px solid black;
-  margin: 0 auto;
 }
 
 img {
@@ -106,7 +100,7 @@ img {
 .search-container {
   height: 100px;
   align-items: center;
-  justify-content: space-around
+  justify-content: space-around;
 }
 
 .search-bar {
@@ -114,7 +108,6 @@ img {
   height: 38px;
   border-radius: 29px;
   background-color: #22252c;
-
 }
 
 .word-list {
@@ -149,26 +142,85 @@ img {
 }
 
 .editor-container {
-  justify-content: center;
+  justify-content: space-around;
   align-items: center;
 }
 
 /* main-gallery */
 
-.gallery-container{
-margin-left: 94px;
-margin-bottom: 20px;
+.gallery-container {
+  margin-left: 94px;
+  margin-bottom: 20px;
 }
 
-.gallery{
+.gallery {
   display: grid;
   grid-template-columns: repeat(auto-fit, 200px);
   grid-gap: 30px;
 }
 
-.footer-container{
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    padding: 20px;
+/* main-editor */
+
+.editor-container {
+  padding-bottom: 30px;
+}
+
+canvas {
+  display: block;
+  border: 1px solid black;
+  margin: 0 auto;
+  border-radius: 10px;
+}
+
+.editor {
+  flex-direction: column;
+  width: 40%;
+  height: 300px;
+  border-radius: 30px;
+  background-color: #97b5e5;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.txt-input {
+  width: 60%;
+  height: 25px;
+  border-radius: 10px;
+  background-color: #ebeef3;
+  box-shadow: 1px 5px 0 #bbc4d1, inset 0 5px 0 #ffffff;
+}
+
+.change-line-btn {
+  width: 56px;
+  height: 46px;
+  box-shadow: 1px 5px 0 #048b97, inset 0 5px 0 rgba(255, 255, 255, 0.58);
+border-radius: 10px;
+background-color: #ebeef3;
+background-image: linear-gradient(-38deg, #66c4dc 0%, #40b1ce 50%, #0c98bb 100%);
+}
+
+.arrow-icon {
+  height: 20px;
+  width: 20px;
+  
+}
+
+.add-line-btn {
+  font-size: 2.5rem;
+  width: 46px;
+  height: 46px;
+  box-shadow: 1px 5px 0 #015d33, inset 0 5px 0 rgba(255, 255, 255, 0.58);
+  border-radius: 10px;
+  background-color: #ebeef3;
+  background-image: linear-gradient(-38deg, #42eb5c 0%, #37b34a 100%);
+  color: white;
+  font-weight: 700;
+}
+/* footer */
+
+.footer-container {
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
 }
