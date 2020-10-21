@@ -43,7 +43,7 @@ function init() {
 
 function drawImg(id) {
     var img = new Image()
-    img.src = `../img/${id}.jpg`;
+    img.src = `img/${id}.jpg`;
     img.onload = () => {
         gCtx.drawImage(img, 0, 0, gCanvas.width, gCanvas.height)
         drawText()
