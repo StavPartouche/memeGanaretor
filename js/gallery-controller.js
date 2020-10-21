@@ -60,3 +60,7 @@ function onDownloadClick(elLink){
     }
 }
 
+function onSaveClick(){
+    saveMeme();
+}
+
