@@ -1,6 +1,7 @@
 function onInit() {
     init();
     renderGallery(gImgs)
+    console.log(gisMouseDown);
 }
 
 function renderCanvas() {
@@ -113,6 +114,18 @@ function toggleMenu(){
     var elSideBar = document.querySelector('.side-bar')
     elSideBar.classList.toggle('show-side-bar')
 
+}
+
+function onSelectLine(ev){
+    selectLine(ev);
+    renderCanvas();
+}
+
+function onDrag(ev){
+    if(gisMouseDown){
+        dragText(ev)
+        renderCanvas();
+    }
 }
 
 

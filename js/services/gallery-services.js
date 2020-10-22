@@ -5,6 +5,7 @@ var gCanvas;
 var gCtx;
 var gSavedMemes;
 var showOptions = false;
+var gisMouseDown = false;
 
 
 
@@ -162,4 +163,30 @@ function creatImgsArr(){
         }
         gImgs.push(newImg)
     }
+}
+
+function selectLine(ev){
+    toggleMouseActive()
+    const { offsetX, offsetY } = ev;
+
+    var clickedLineIndex = gMeme.lines.findIndex(line => {
+        return offsetY > (line.y - line.size) && offsetY < line.y 
+    })
+
+    gMeme.selectedLineIdx = clickedLineIndex
+}
+
+function toggleMouseActive(){
+    gisMouseDown = !gisMouseDown;
+    console.log(gisMouseDown);
+}
+
+function dragText(ev){
+    const { offsetX, offsetY } = ev;
+
+    // console.log(offsetX, offsetY);
+
+    gMeme.lines[gMeme.selectedLineIdx].x = offsetX
+    gMeme.lines[gMeme.selectedLineIdx].y = offsetY
+
 }
