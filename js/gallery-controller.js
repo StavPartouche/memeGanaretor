@@ -26,8 +26,18 @@ function onSelectImg(el) {
     var elEditorContainer = document.querySelector('.editor-container')
     elEditorContainer.classList.remove('hide')
     elEditorContainer.classList.add('flex')
+
+    if((el.naturalWidth > 900 && el.naturalHeight > 900) || (el.naturalWidth < 300 && el.naturalHeight < 300)){
+        gCtx.canvas.width = 500
+        gCtx.canvas.height = 500
+    }
+    else{
+        gCtx.canvas.width = el.naturalWidth
+        gCtx.canvas.height = el.naturalHeight
+    }
     selectImg(el.id)
     renderCanvas()
+    document.querySelector('#main-canvas').scrollIntoView()
 }
 
 function onChangeFontSize(num) {

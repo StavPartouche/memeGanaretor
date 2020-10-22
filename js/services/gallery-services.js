@@ -62,8 +62,8 @@ function updateMemeTxt(txt) {
     gMeme.lines[lineIdx].txt = txt
 }
 
-function selectImg(imgID) {
-    gMeme.selectedImgId = imgID;
+function selectImg(imgId) {
+    gMeme.selectedImgId = imgId;
 }
 
 function changeFontSize(num) {
