@@ -91,11 +91,10 @@ img {
 /* main */
 
 .main-container {
-    
-border-radius: 10px;
+  border-radius: 10px;
   background-color: #383b42;
   padding-bottom: 20px;
-  }
+}
 
 .saved-memes {
   display: grid;
@@ -103,6 +102,54 @@ border-radius: 10px;
   grid-gap: 30px;
   margin-left: 94px;
   padding-top: 20px;
+}
+
+.editor-container {
+  padding-top: 20px;
+  padding-bottom: 30px;
+  justify-content: space-around;
+  align-items: center;
+}
+
+canvas {
+  display: block;
+  border: 1px solid black;
+  margin: 0 auto;
+  border-radius: 10px;
+}
+
+.btn-container {
+  flex-direction: column;
+}
+
+.btn {
+  margin-bottom: 10px;
+  font-size: 0.9rem;
+  text-align: center;
+  color: white;
+  border-radius: 15px;
+  font-family: Poppins300;
+  padding: 5px;
+}
+
+.download-btn {
+  text-decoration: none;
+  width: 130px;
+  height: 30px;
+  box-shadow: 1px 6px 0 #632687, inset 0 1px 0 #ffffff;
+  background-color: #8f44bb;
+}
+
+.delete-btn {
+  width: 143px;
+  height: 39px;
+  background-color: #ebeef3;
+  background-image: linear-gradient(
+    -38deg,
+    #cf1d37 0%,
+    #cf1d37 1%,
+    #f05036 100%
+  );
 }
 
 /* footer */

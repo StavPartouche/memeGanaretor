@@ -18,7 +18,7 @@ var gImgs = [
     {id: 17, url: `./img/17.jpg`, keywords: ['putin','scary']},
     {id: 18, url: `./img/18.jpg`, keywords: ['toy story','movie', 'tv', 'funny', 'smile']},
     {id: 19, url: `./img/19.jpg`, keywords: ['movie', 'tv', 'funny']},
-    {id: 20, url: `./img/20.jpg`, keywords: ['animal','funny']},
+    {id: 20, url: `./img/20.jpg`, keywords: ['animal','funny','adam']},
     {id: 21, url: `./img/21.jpg`, keywords: ['happy','funny', 'smile']},
     {id: 22, url: `./img/22.jpg`, keywords: ['trump','funny']},
     {id: 23, url: `./img/23.jpg`, keywords: ['animal','funny']},

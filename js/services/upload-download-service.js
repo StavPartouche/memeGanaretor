@@ -36,3 +36,9 @@ function downloadCanvas(elLink) {
     elLink.href = data
     elLink.download = 'my meme.jpg'
 }
+
+function downloadSavedCanvas(elLink) {
+    const data = gSavedCanvas.toDataURL()
+    elLink.href = data
+    elLink.download = 'my meme.jpg'
+}

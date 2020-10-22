@@ -27,7 +27,7 @@ function onSelectImg(el) {
     elEditorContainer.classList.remove('hide')
     elEditorContainer.classList.add('flex')
 
-    if((el.naturalWidth > 900 && el.naturalHeight > 900) || (el.naturalWidth < 300 && el.naturalHeight < 300)){
+    if((el.naturalWidth > 850 && el.naturalHeight > 850) || (el.naturalWidth < 300 && el.naturalHeight < 300)){
         gCtx.canvas.width = 500
         gCtx.canvas.height = 500
     }
