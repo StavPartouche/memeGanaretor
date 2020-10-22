@@ -105,7 +105,13 @@ function showAllOptions() {
             elButton.innerText = 'More'
         }
     })
+}
 
+function toggleMenu(){
+    var elSideBarCont = document.querySelector('.side-bar-container')
+    elSideBarCont.classList.toggle('show-side-bar')
+    var elSideBar = document.querySelector('.side-bar')
+    elSideBar.classList.toggle('show-side-bar')
 
 }
 

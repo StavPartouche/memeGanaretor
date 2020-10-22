@@ -22,20 +22,28 @@
         </div>
     </header>
 
+    <div class="side-bar-container" onclick="toggleMenu()">
+        <ul class="side-bar clean-list flex">
+            <li><a href="index.html">Gallery</a></li>
+            <li><a href="memes.html">Memes</a></li>
+            <li><a href="#">About</a></li>
+        </ul>
+    </div>
+
     <main class="main-container container">
         <section class="search-container flex">
             <input class="search-bar" onchange="onSearchMeme(value)" type="text" placeholder="Search">
-            <ul class="word-list flex clean-list">
-                <li onclick="onSearchMeme('funny')">funny</li>
-                <li onclick="onSearchMeme('smile')">smile</li>
-                <li onclick="onSearchMeme('cute')">cute</li>
-                <li onclick="onSearchMeme('animal')">animal</li>
-                <li onclick="onSearchMeme('tv')">tv</li>
-                <li class="search-option hide" onclick="onSearchMeme('movie')">movie</li>
-                <li class="search-option hide" onclick="onSearchMeme('awkward')">awkward</li>
-                <li class="search-option hide" onclick="onSearchMeme('kids')">kids</li>
-            </ul>
-            <button class="more-btn" onclick="showAllOptions()">More</button>
+                <ul class="word-list flex clean-list">
+                    <li onclick="onSearchMeme('funny')">funny</li>
+                    <li onclick="onSearchMeme('smile')">smile</li>
+                    <li onclick="onSearchMeme('cute')">cute</li>
+                    <li onclick="onSearchMeme('animal')">animal</li>
+                    <li onclick="onSearchMeme('tv')">tv</li>
+                    <li class="search-option hide" onclick="onSearchMeme('movie')">movie</li>
+                    <li class="search-option hide" onclick="onSearchMeme('awkward')">awkward</li>
+                    <li class="search-option hide" onclick="onSearchMeme('kids')">kids</li>
+                </ul>
+                <button class="more-btn" onclick="showAllOptions()">More</button>
         </section>
 
         <section class="editor-container hide">
