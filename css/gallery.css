@@ -105,15 +105,18 @@ img {
 }
 
 .search-bar {
-  width: 40%;
+  width: 400px;
   height: 38px;
   border-radius: 29px;
   background-color: #22252c;
+  color: white;
+  font-size: 1.3rem;
+  padding-left: 3%;
 }
 
 .word-list {
-  width: 45%;
-  height: 38px;
+  width: 400px;
+  /* height: 38px; */
   box-shadow: 0 3px 6px 1px rgba(0, 0, 0, 0.15);
   border-radius: 25px;
   background-color: #6b6161;
@@ -121,12 +124,14 @@ img {
   margin-left: 15px;
   align-items: center;
   justify-content: space-around;
+  flex-wrap: wrap;
 }
 
 .word-list li {
   color: #ffffff;
-  font-size: 1rem;
+  font-size: 1.3rem;
   font-family: Poppins300;
+  cursor: pointer;
 }
 
 .more-btn {

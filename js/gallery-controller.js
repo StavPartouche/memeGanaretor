@@ -1,28 +1,28 @@
-function onInit(){
+function onInit() {
     init();
-    renderGallery()
+    renderGallery(gImgs)
 }
 
-function renderCanvas(){
+function renderCanvas() {
     var imgID = gMeme.selectedImgId
     drawImg(imgID)
 }
 
-function renderGallery(){
+function renderGallery(imgs) {
     var strHtml = '';
-    gImgs.forEach(img => {
+    imgs.forEach(img => {
         strHtml += `<img onclick="onSelectImg(this)" src=${img.url} alt="" id="${img.id}">`
     })
     var elGallery = document.querySelector('.gallery');
     elGallery.innerHTML = strHtml
 }
 
-function onUpdateMemeTxt(value){
+function onUpdateMemeTxt(value) {
     updateMemeTxt(value);
     renderCanvas()
 }
 
-function onSelectImg(el){
+function onSelectImg(el) {
     var elEditorContainer = document.querySelector('.editor-container')
     elEditorContainer.classList.remove('hide')
     elEditorContainer.classList.add('flex')
@@ -30,32 +30,32 @@ function onSelectImg(el){
     renderCanvas()
 }
 
-function onChangeFontSize(num){
+function onChangeFontSize(num) {
     changeFontSize(num)
     renderCanvas()
 }
 
-function onChangeLineLoc(num){
+function onChangeLineLoc(num) {
     changeLineLoc(num)
     renderCanvas()
 }
 
-function onChangeLineFocus(){
+function onChangeLineFocus() {
     changeLineFocus();
     renderCanvas()
 }
 
-function onAddLineClick(){
+function onAddLineClick() {
     addLine();
     renderCanvas()
 }
 
-function onDeleteLineClick(){
+function onDeleteLineClick() {
     deleteLine()
     renderCanvas()
 }
 
-function onDownloadClick(elLink){
+function onDownloadClick(elLink) {
     var img = new Image()
     img.src = `img/${gMeme.selectedImgId}.jpg`;
     img.onload = () => {
@@ -65,7 +65,7 @@ function onDownloadClick(elLink){
     }
 }
 
-function onSaveClick(){
+function onSaveClick() {
     var img = new Image()
     img.src = `img/${gMeme.selectedImgId}.jpg`;
     img.onload = () => {
@@ -74,4 +74,29 @@ function onSaveClick(){
         saveMeme();
     }
 }
+
+function onSearchMeme(str) {
+    var searchedImgs = searchMeme(str);
+    console.log(searchedImgs);
+    renderGallery(searchedImgs)
+}
+
+function showAllOptions() {
+    var toggle = toggleShowOptions()
+    var elSearchOption = document.querySelectorAll('.search-option')
+    var elButton = document.querySelector('.more-btn')
+    elSearchOption.forEach(elOption => {
+        if(toggle) {
+            elOption.classList.remove('hide')
+            elButton.innerText = 'Less'
+        }
+        else{
+            elOption.classList.add('hide')
+            elButton.innerText = 'More'
+        }
+    })
+
+
+}
+
 

@@ -24,15 +24,18 @@
 
     <main class="main-container container">
         <section class="search-container flex">
-            <input class="search-bar" type="text" placeholder="        Search">
+            <input class="search-bar" onchange="onSearchMeme(value)" type="text" placeholder="Search">
             <ul class="word-list flex clean-list">
-                <li>word</li>
-                <li>word</li>
-                <li>word</li>
-                <li>word</li>
-                 <li>word</li>
+                <li onclick="onSearchMeme('funny')">funny</li>
+                <li onclick="onSearchMeme('smile')">smile</li>
+                <li onclick="onSearchMeme('cute')">cute</li>
+                <li onclick="onSearchMeme('animal')">animal</li>
+                <li onclick="onSearchMeme('tv')">tv</li>
+                <li class="search-option hide" onclick="onSearchMeme('movie')">movie</li>
+                <li class="search-option hide" onclick="onSearchMeme('awkward')">awkward</li>
+                <li class="search-option hide" onclick="onSearchMeme('kids')">kids</li>
             </ul>
-            <button class="more-btn">more</button>
+            <button class="more-btn" onclick="showAllOptions()">More</button>
         </section>
 
         <section class="editor-container hide">
@@ -74,6 +77,7 @@
 
     <script src="js/services/storage-service.js"></script>
     <script src="js/services/upload-download-service.js"></script>
+    <script src="js/services/imgsDataBase.js"></script>
     <script src="js/services/gallery-services.js"></script>
     <script src="js/gallery-controller.js"></script>
 </body>

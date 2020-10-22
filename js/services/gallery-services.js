@@ -3,9 +3,10 @@ const STORAGE_KEY = 'memesDB';
 
 var gCanvas;
 var gCtx;
-var gSavedMemes
+var gSavedMemes;
+var showOptions = false;
 
-var gImgs = []
+
 
 var gMeme = {
     selectedImgId: 0,
@@ -27,7 +28,7 @@ function init() {
     gCanvas = document.querySelector('#main-canvas')
     gCtx = gCanvas.getContext('2d')
     
-    creatImgsArr()
+    // creatImgsArr()
 }
 
 function drawImg(id) {
@@ -132,6 +133,25 @@ function saveMeme() {
     var newMemeUrl = gCanvas.toDataURL()
     gSavedMemes.push(newMemeUrl)
     saveToStorage(STORAGE_KEY, gSavedMemes)
+}
+function searchMeme(str){
+    if(str === '') return gImgs;
+        
+    var selectedMemes = [];
+    gImgs.forEach(img => {
+        img.keywords.forEach(word => {
+            if(word.includes(str)){
+                selectedMemes.push(img)
+                return
+            }
+        })
+    })
+    return selectedMemes;
+}
+
+function toggleShowOptions(){
+    showOptions = !showOptions
+    return showOptions
 }
 
 function creatImgsArr(){
