@@ -96,7 +96,6 @@ function addLine() {
 function deleteLine(){
     var idx = gMeme.selectedLineIdx;
     gMeme.lines.splice(idx, 1)
-    console.log(gMeme.lines);
     if(!gMeme.lines.length){
         gMeme.lines = [
             {
@@ -107,7 +106,12 @@ function deleteLine(){
             }
         ]
     }
-    console.log(gMeme.lines);
+}
+
+function moveLine(num){
+    if(num === 0) gMeme.lines[gMeme.selectedLineIdx].x = 60
+    if(num === 1) gMeme.lines[gMeme.selectedLineIdx].x = gCanvas.width/2
+    if(num === 2) gMeme.lines[gMeme.selectedLineIdx].x = gCanvas.width - 60
 }
 
 function changeLineFocus() {
@@ -167,7 +171,7 @@ function creatImgsArr(){
 
 function selectLine(ev){
     toggleMouseActive()
-    const { offsetX, offsetY } = ev;
+    const { offsetY } = ev;
 
     var clickedLineIndex = gMeme.lines.findIndex(line => {
         return offsetY > (line.y - line.size) && offsetY < line.y 
@@ -177,14 +181,12 @@ function selectLine(ev){
 }
 
 function toggleMouseActive(){
-    gisMouseDown = !gisMouseDown;
-    console.log(gisMouseDown);
+    gisMouseDown = !gisMouseDown
 }
 
 function dragText(ev){
+    
     const { offsetX, offsetY } = ev;
-
-    // console.log(offsetX, offsetY);
 
     gMeme.lines[gMeme.selectedLineIdx].x = offsetX
     gMeme.lines[gMeme.selectedLineIdx].y = offsetY

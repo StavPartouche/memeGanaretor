@@ -315,6 +315,21 @@ canvas {
   font-size: 1.3rem;
 }
 
+.lines-btn img {
+  width: 30px;
+  height: 30px;
+  
+}
+
+.lines-btn{
+  width: 56px;
+  height: 51px;
+  background-color: #ffffff;
+  box-shadow: 1px 5px 0 rgba(92, 92, 92, 0.55),
+    inset 0 5px 0 rgba(255, 255, 255, 0.58);
+  border-radius: 10px;
+}
+
 .download-btn {
   text-align: center;
   text-decoration: none;

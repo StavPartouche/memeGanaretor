@@ -36,7 +36,6 @@ function renderSavedCanvas(imgSrc){
 }
 
 function onDeleteMeme(){
-    console.log('click');
     deleteMeme();
     var elEditorContainer = document.querySelector('.editor-container')
     elEditorContainer.classList.remove('flex')

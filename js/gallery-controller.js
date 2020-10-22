@@ -1,7 +1,6 @@
 function onInit() {
     init();
     renderGallery(gImgs)
-    console.log(gisMouseDown);
 }
 
 function renderCanvas() {
@@ -66,6 +65,11 @@ function onDeleteLineClick() {
     renderCanvas()
 }
 
+function onMoveLine(num){
+    moveLine(num)
+    renderCanvas()
+}
+
 function onDownloadClick(elLink) {
     var img = new Image()
     img.src = `img/${gMeme.selectedImgId}.jpg`;
@@ -88,7 +92,6 @@ function onSaveClick() {
 
 function onSearchMeme(str) {
     var searchedImgs = searchMeme(str);
-    console.log(searchedImgs);
     renderGallery(searchedImgs)
 }
 
@@ -117,12 +120,14 @@ function toggleMenu(){
 }
 
 function onSelectLine(ev){
+    // ev.preventDefault()
     selectLine(ev);
     renderCanvas();
 }
 
 function onDrag(ev){
     if(gisMouseDown){
+        ev.preventDefault()
         dragText(ev)
         renderCanvas();
     }

@@ -48,8 +48,9 @@
 
         <section class="editor-container hide">
             <div class="canvas-container ">
-                <canvas id="main-canvas" onclick="" onmousedown="onSelectLine(event)" 
-                onmouseup="toggleMouseActive()" onmousemove="onDrag(event)"></canvas>
+                <canvas id="main-canvas" onmousedown="onSelectLine(event)" 
+                onmouseup="toggleMouseActive()" onmousemove="onDrag(event)" ontouchstart="onSelectLine(event)"
+                ontouchend="toggleMouseActive()" ontouchmove="onDrag(event)"></canvas>
             </div>
         
             <div class="editor flex">
@@ -64,6 +65,11 @@
                     <button class="font-size-btn" onclick="onChangeFontSize(0)"><span>A</span>-</button>
                     <button class="txt-loc-btn"  onclick="onChangeLineLoc(1)">↑</button>
                     <button class="txt-loc-btn" onclick="onChangeLineLoc(0)">↓</button>
+                </div>
+                <div>
+                    <button class="lines-btn" onclick="onMoveLine(0)"><img src="./img/icons/lines-left.png" alt=""></button>
+                    <button class="lines-btn" onclick="onMoveLine(1)"><img src="./img/icons/lines-center.png" alt=""></button>
+                    <button class="lines-btn" onclick="onMoveLine(2)"><img src="./img/icons/lines-right.png" alt=""></button>
                 </div>
                 <div>
                     <a class="download-btn" href="#" onclick="onDownloadClick(this)" download="">Download</a>
