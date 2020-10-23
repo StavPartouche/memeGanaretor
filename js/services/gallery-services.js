@@ -6,7 +6,7 @@ var gCtx;
 var gSavedMemes;
 var showOptions = false;
 var gisMouseDown = false;
-
+var gWordSize
 
 
 var gMeme = {
@@ -25,11 +25,12 @@ var gMeme = {
 function init() {
     gSavedMemes = loadFromStorage(STORAGE_KEY)
     if(!gSavedMemes) gSavedMemes = [];
+
+    gWordSize = [0,0,0,0,0,0,0,0]
     
     gCanvas = document.querySelector('#main-canvas')
     gCtx = gCanvas.getContext('2d')
     
-    // creatImgsArr()
 }
 
 function drawImg(id) {
@@ -154,19 +155,13 @@ function searchMeme(str){
     return selectedMemes;
 }
 
+function enlargeWords(id){
+    gWordSize[id]++
+}
+
 function toggleShowOptions(){
     showOptions = !showOptions
     return showOptions
-}
-
-function creatImgsArr(){
-    for(var i = 1 ; i < 19; i++){
-        var newImg = {
-            id: i,
-            url: `./img/${i}.jpg`
-        }
-        gImgs.push(newImg)
-    }
 }
 
 function selectLine(ev){

@@ -34,14 +34,14 @@
         <section class="search-container flex">
             <input class="search-bar" onchange="onSearchMeme(value)" type="text" placeholder="Search">
                 <ul class="word-list flex clean-list">
-                    <li onclick="onSearchMeme('funny')">funny</li>
-                    <li onclick="onSearchMeme('smile')">smile</li>
-                    <li onclick="onSearchMeme('cute')">cute</li>
-                    <li onclick="onSearchMeme('animal')">animal</li>
-                    <li onclick="onSearchMeme('tv')">tv</li>
-                    <li class="search-option hide" onclick="onSearchMeme('movie')">movie</li>
-                    <li class="search-option hide" onclick="onSearchMeme('awkward')">awkward</li>
-                    <li class="search-option hide" onclick="onSearchMeme('kids')">kids</li>
+                    <li id="0" onclick="onSearchMeme('funny', id)">funny</li>
+                    <li id="1" onclick="onSearchMeme('smile', id)">smile</li>
+                    <li id="2" onclick="onSearchMeme('cute', id)">cute</li>
+                    <li id="3" onclick="onSearchMeme('animal', id)">animal</li>
+                    <li id="4" onclick="onSearchMeme('tv', id)">tv</li>
+                    <li id="5" class="search-option hide" onclick="onSearchMeme('movie', id)">movie</li>
+                    <li id="6" class="search-option hide" onclick="onSearchMeme('awkward', id)">awkward</li>
+                    <li id="7" class="search-option hide" onclick="onSearchMeme('kids', id)">kids</li>
                 </ul>
                 <button class="more-btn" onclick="showAllOptions()">More</button>
         </section>

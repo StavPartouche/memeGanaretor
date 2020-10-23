@@ -90,7 +90,9 @@ function onSaveClick() {
     }
 }
 
-function onSearchMeme(str) {
+function onSearchMeme(str, id) {
+    enlargeWords(id)
+    document.getElementById(`${id}`).style.fontSize = `${1.3 + (gWordSize[id]/10)}rem`
     var searchedImgs = searchMeme(str);
     renderGallery(searchedImgs)
 }
