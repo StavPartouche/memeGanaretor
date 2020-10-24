@@ -166,11 +166,18 @@ function toggleShowOptions() {
     return showOptions
 }
 
-function selectLine(ev) {
+function selectLine(ev, num) {
     toggleMouseActive()
-    const {offsetY} = ev;
+    var offsetY;
 
-
+    if (num === 0) {
+        offsetY = ev.offsetY
+        console.log(offsetY);
+    }
+    if (num === 1) {
+        offsetY = ev.targetTouches[0].clientY
+        console.log(offsetY);
+    }
 
     var clickedLineIndex = gMeme.lines.findIndex(line => {
         return offsetY > (line.y - line.size) && offsetY < line.y
@@ -183,12 +190,19 @@ function toggleMouseActive() {
     gisMouseDown = !gisMouseDown
 }
 
-function dragText(ev) {
-
-    const { movementX, movementY } = ev;
-
-    gMeme.lines[gMeme.selectedLineIdx].x += movementX
-    gMeme.lines[gMeme.selectedLineIdx].y += movementY
+function dragText(ev, num) {
+    console.log(ev);
+    if (num === 0) {
+        var { movementX, movementY } = ev;
+        gMeme.lines[gMeme.selectedLineIdx].x += movementX
+        gMeme.lines[gMeme.selectedLineIdx].y += movementY
+    }
+    if (num === 1){
+        var touchX = ev.targetTouches[0].clientX
+        var touchY = ev.targetTouches[0].clientY
+        gMeme.lines[gMeme.selectedLineIdx].x = touchX
+        gMeme.lines[gMeme.selectedLineIdx].y = touchY
+    }
 }
 
 function randomWordSize() {
@@ -196,14 +210,13 @@ function randomWordSize() {
         gWordSize[i] = getRndInteger(1, 7)
         document.getElementById(`${i}`).style.fontSize = `${1.3 + (gWordSize[i] / 10)}rem`
     }
-
 }
 
 function calcSize(num) {
     if (window.innerWidth < 850 && gMeme.selectImgEl) {
         var elEditor = document.querySelector('.editor')
         return num / (gMeme.selectImgEl.naturalWidth / elEditor.offsetWidth)
-    }else{
+    } else {
         return num
     }
 }

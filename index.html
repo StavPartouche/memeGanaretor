@@ -48,9 +48,9 @@
 
         <section class="editor-container hide">
             <div class="canvas-container ">
-                <canvas id="main-canvas" onmousedown="onSelectLine(event)" 
-                onmouseup="toggleMouseActive()" onmousemove="onDrag(event)" ontouchstart="onSelectLine(event)"
-                ontouchend="toggleMouseActive()" ontouchmove="onDrag(event)"></canvas>
+                <canvas id="main-canvas" onmousedown="onSelectLine(event , 0)" 
+                onmouseup="toggleMouseActive()" onmousemove="onDrag(event , 0)" ontouchstart="onSelectLine(event , 1)"
+                ontouchend="toggleMouseActive()" ontouchmove="onDrag(event , 1)"></canvas>
             </div>
         
             <div class="editor flex">

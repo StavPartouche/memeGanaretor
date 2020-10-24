@@ -122,17 +122,16 @@ function toggleMenu(){
 
 }
 
-function onSelectLine(ev){
+function onSelectLine(ev ,num){
     ev.preventDefault()
-    console.log(ev);
-    selectLine(ev);
+    selectLine(ev, num);
     renderCanvas();
 }
 
-function onDrag(ev){
+function onDrag(ev, num){
     if(gisMouseDown){
         ev.preventDefault()
-        dragText(ev)
+        dragText(ev, num)
         renderCanvas();
     }
 }
