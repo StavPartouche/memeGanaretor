@@ -130,6 +130,7 @@ function drawFocus() {
     gCtx.beginPath()
     gCtx.rect((20), (textHeight - fontSize), (gCanvas.width - 40), (fontSize + 10))
     gCtx.strokeStyle = 'black'
+    gCtx.lineWidth = 5
     gCtx.stroke()
 
 }
