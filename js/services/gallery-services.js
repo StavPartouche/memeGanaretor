@@ -10,6 +10,7 @@ var gWordSize = []
 
 
 var gMeme = {
+    selectedImgEvent: null,
     selectedImgId: 0,
     selectedLineIdx: 0,
     lines: [
