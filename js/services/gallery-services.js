@@ -10,6 +10,7 @@ var gWordSize = []
 
 
 var gMeme = {
+    selectImgEl: null,
     selectedImgId: 0,
     selectedLineIdx: 0,
     lines: [
@@ -24,13 +25,13 @@ var gMeme = {
 
 function init() {
     gSavedMemes = loadFromStorage(STORAGE_KEY)
-    if(!gSavedMemes) gSavedMemes = [];
+    if (!gSavedMemes) gSavedMemes = [];
 
     randomWordSize()
-    
+
     gCanvas = document.querySelector('#main-canvas')
     gCtx = gCanvas.getContext('2d')
-    
+
 }
 
 function drawImg(id) {
@@ -51,7 +52,7 @@ function drawText() {
         gCtx.strokeStyle = 'black'
         gCtx.fillStyle = 'white'
         gCtx.lineWidth = '1'
-        gCtx.font = `${fontSize}px  ${gMemeFont}`
+        gCtx.font = `${calcSize(fontSize)}px  ${gMemeFont}`
         gCtx.textAlign = 'center'
         gCtx.fillText(line.txt, textX, textHeight)
         gCtx.strokeText(line.txt, textX, textHeight)
@@ -93,14 +94,14 @@ function addLine() {
     drawFocus()
 }
 
-function deleteLine(){
+function deleteLine() {
     var idx = gMeme.selectedLineIdx;
     gMeme.lines.splice(idx, 1)
-    if(!gMeme.lines.length){
+    if (!gMeme.lines.length) {
         gMeme.lines = [
             {
                 txt: '',
-                size: 48,
+                size: calcSize(48),
                 y: 60,
                 x: 250
             }
@@ -108,10 +109,10 @@ function deleteLine(){
     }
 }
 
-function moveLine(num){
-    if(num === 0) gMeme.lines[gMeme.selectedLineIdx].x = 60
-    if(num === 1) gMeme.lines[gMeme.selectedLineIdx].x = gCanvas.width/2
-    if(num === 2) gMeme.lines[gMeme.selectedLineIdx].x = gCanvas.width - 60
+function moveLine(num) {
+    if (num === 0) gMeme.lines[gMeme.selectedLineIdx].x = 60
+    if (num === 1) gMeme.lines[gMeme.selectedLineIdx].x = gCanvas.width / 2
+    if (num === 2) gMeme.lines[gMeme.selectedLineIdx].x = gCanvas.width - 60
 }
 
 function changeLineFocus() {
@@ -140,13 +141,13 @@ function saveMeme() {
     gSavedMemes.push(newMemeUrl)
     saveToStorage(STORAGE_KEY, gSavedMemes)
 }
-function searchMeme(str){
-    if(str === '') return gImgs;
-        
+function searchMeme(str) {
+    if (str === '') return gImgs;
+
     var selectedMemes = [];
     gImgs.forEach(img => {
         img.keywords.forEach(word => {
-            if(word.includes(str)){
+            if (word.includes(str)) {
                 selectedMemes.push(img)
                 return
             }
@@ -155,43 +156,57 @@ function searchMeme(str){
     return selectedMemes;
 }
 
-function enlargeWords(id){
+function enlargeWords(id) {
     gWordSize[id]++
 }
 
-function toggleShowOptions(){
+function toggleShowOptions() {
     showOptions = !showOptions
     return showOptions
 }
 
-function selectLine(ev){
+function selectLine(ev) {
     toggleMouseActive()
-    const { offsetY } = ev;
+    const { offsetY, offsetX } = ev;
+
+    // console.log(offsetY, offsetX);
 
     var clickedLineIndex = gMeme.lines.findIndex(line => {
-        return offsetY > (line.y - line.size) && offsetY < line.y 
+        return offsetY > (line.y - line.size) && offsetY < line.y
     })
 
     gMeme.selectedLineIdx = clickedLineIndex
 }
 
-function toggleMouseActive(){
+function toggleMouseActive() {
     gisMouseDown = !gisMouseDown
 }
 
-function dragText(ev){
-    
-    const { offsetX, offsetY } = ev;
+function dragText(ev) {
 
-    gMeme.lines[gMeme.selectedLineIdx].x = offsetX
-    gMeme.lines[gMeme.selectedLineIdx].y = offsetY
+    const { movementX, movementY } = ev;
+
+    gMeme.lines[gMeme.selectedLineIdx].x += movementX
+    gMeme.lines[gMeme.selectedLineIdx].y += movementY
+
+    console.log(gMeme.lines[gMeme.selectedLineIdx].x, gMeme.lines[gMeme.selectedLineIdx].y);
+
 
 }
 
-function randomWordSize(){
-    for(var i = 0; i < 7; i++){
+function randomWordSize() {
+    for (var i = 0; i < 7; i++) {
         gWordSize[i] = getRndInteger(1, 7)
-        document.getElementById(`${i}`).style.fontSize = `${1.3 + (gWordSize[i]/10)}rem`
+        document.getElementById(`${i}`).style.fontSize = `${1.3 + (gWordSize[i] / 10)}rem`
     }
     console.log(gWordSize);
+}
+
+function calcSize(num) {
+    if (window.innerWidth < 850 && gMeme.selectImgEl) {
+        var elEditor = document.querySelector('.editor')
+        return num / (gMeme.selectImgEl.naturalWidth / elEditor.offsetWidth)
+    }else{
+        return num
+    }
 }

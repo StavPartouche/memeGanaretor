@@ -23,6 +23,7 @@ function onUpdateMemeTxt(value) {
 }
 
 function onSelectImg(el) {
+    gMeme.selectImgEl = el
     var elEditorContainer = document.querySelector('.editor-container')
     elEditorContainer.classList.remove('hide')
     elEditorContainer.classList.add('flex')
@@ -133,6 +134,20 @@ function onDrag(ev){
         dragText(ev)
         renderCanvas();
     }
+}
+
+var x 
+
+
+function onResize(){
+    if(!gMeme.selectImgEl) return
+    var elEditor = document.querySelector('.editor')
+    if(window.innerWidth < 850){
+        gCtx.canvas.width = elEditor.offsetWidth
+        gCtx.canvas.height = calcSize(gMeme.selectImgEl.naturalHeight )
+    }
+
+    renderCanvas();
 }
 
 
