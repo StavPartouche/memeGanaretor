@@ -38,6 +38,11 @@
             <div class="btn-container flex">
                 <a class="download-btn btn" href="#" onclick="downloadSavedCanvas(this)" download="">Download</a>
                 <button class="delete-btn btn" onclick="onDeleteMeme()">Delete</button>
+                <form class="publish-form" action="" method="POST" enctype="multipart/form-data" onsubmit="uploadSavedImg(this, event)">
+                    <input name="img" id="imgData" type="hidden" />
+                    <button class="btn publish-btn" type="submit">Publish</button>
+                    <div class="share-container"></div>
+                  </form>
             </div>
         </section>
         <div class="saved-memes">

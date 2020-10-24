@@ -6,7 +6,7 @@ var gCtx;
 var gSavedMemes;
 var showOptions = false;
 var gisMouseDown = false;
-var gWordSize
+var gWordSize = []
 
 
 var gMeme = {
@@ -26,7 +26,7 @@ function init() {
     gSavedMemes = loadFromStorage(STORAGE_KEY)
     if(!gSavedMemes) gSavedMemes = [];
 
-    gWordSize = [0,0,0,0,0,0,0,0]
+    randomWordSize()
     
     gCanvas = document.querySelector('#main-canvas')
     gCtx = gCanvas.getContext('2d')
@@ -41,7 +41,6 @@ function drawImg(id) {
         drawText()
         drawFocus()
     }
-    
 }
 
 function drawText() {
@@ -186,4 +185,12 @@ function dragText(ev){
     gMeme.lines[gMeme.selectedLineIdx].x = offsetX
     gMeme.lines[gMeme.selectedLineIdx].y = offsetY
 
+}
+
+function randomWordSize(){
+    for(var i = 0; i < 7; i++){
+        gWordSize[i] = getRndInteger(1, 7)
+        document.getElementById(`${i}`).style.fontSize = `${1.3 + (gWordSize[i]/10)}rem`
+    }
+    console.log(gWordSize);
 }

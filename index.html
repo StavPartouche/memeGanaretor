@@ -75,8 +75,16 @@
                     <a class="download-btn" href="#" onclick="onDownloadClick(this)" download="">Download</a>
                     <button class="save-btn" onclick="onSaveClick()">Save</button>
                 </div>
+                <form class="publish-form" action="" method="POST" enctype="multipart/form-data" onsubmit="uploadImg(this, event)">
+                    <input name="img" id="imgData" type="hidden" />
+                    <button class="btn publish-btn" type="submit">Publish</button>
+                    <div class="share-container"></div>
+                  </form>
             </div>
         </section>
+
+        <!-- <p><input type="file"  accept="image/*" name="image" id="file"  onchange="loadFile(event)" style="display: none;"></p>
+        <p><label for="file" style="cursor: pointer;">Upload Image</label></p> -->
     
         <section class="gallery-container">
             <div class="gallery">
@@ -90,6 +98,7 @@
     </footer>
 
     <script src="js/services/storage-service.js"></script>
+    <script src="js/services/util-service.js"></script>
     <script src="js/services/upload-download-service.js"></script>
     <script src="js/services/imgsDataBase.js"></script>
     <script src="js/services/gallery-services.js"></script>

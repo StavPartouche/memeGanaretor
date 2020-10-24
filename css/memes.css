@@ -206,6 +206,35 @@ canvas {
   );
 }
 
+.publish-form{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.publish-btn{
+  text-align: center;
+  text-decoration: none;
+  color: white;
+  width: 143px;
+  height: 33px;
+  box-shadow: 1px 6px 0 #1b2cc2, inset 0 1px 0 #ffffff;
+  border-radius: 15px;
+  background-color: #3c1ee4;
+  font-family: Poppins300;
+  padding: 5px;
+  margin-bottom: 5px;
+}
+
+.share-btn{
+  font-size: 1.3rem;
+    text-align: center;
+    color: white;
+    border-radius: 15px;
+    font-family: Poppins300;
+    padding: 5px;
+}
+
 /* footer */
 
 .footer-container {

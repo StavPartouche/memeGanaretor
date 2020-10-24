@@ -122,7 +122,7 @@ function toggleMenu(){
 }
 
 function onSelectLine(ev){
-    // ev.preventDefault()
+    ev.preventDefault()
     selectLine(ev);
     renderCanvas();
 }
