@@ -29,12 +29,12 @@ function onSelectImg(el) {
     elEditorContainer.classList.add('flex')
 
     if((el.naturalWidth > 850 && el.naturalHeight > 850) || (el.naturalWidth < 300 && el.naturalHeight < 300)){
-        gCtx.canvas.width = 500
-        gCtx.canvas.height = 500
+        gCtx.canvas.width = calcSize(500) 
+        gCtx.canvas.height = calcSize(500) 
     }
     else{
-        gCtx.canvas.width = el.naturalWidth
-        gCtx.canvas.height = el.naturalHeight
+        gCtx.canvas.width = calcSize(el.naturalWidth)
+        gCtx.canvas.height = calcSize(el.naturalHeight) 
     }
     selectImg(el.id)
     renderCanvas()
@@ -124,6 +124,7 @@ function toggleMenu(){
 
 function onSelectLine(ev){
     ev.preventDefault()
+    console.log(ev);
     selectLine(ev);
     renderCanvas();
 }
@@ -136,18 +137,19 @@ function onDrag(ev){
     }
 }
 
-var x 
-
-
 function onResize(){
     if(!gMeme.selectImgEl) return
     var elEditor = document.querySelector('.editor')
     if(window.innerWidth < 850){
         gCtx.canvas.width = elEditor.offsetWidth
         gCtx.canvas.height = calcSize(gMeme.selectImgEl.naturalHeight )
+    }else{
+        gCtx.canvas.width = gMeme.selectImgEl.naturalWidth
+        gCtx.canvas.height = gMeme.selectImgEl.naturalHeight
     }
 
     renderCanvas();
 }
+
 
 

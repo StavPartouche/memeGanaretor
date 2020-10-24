@@ -86,7 +86,7 @@ function addLine() {
     var newLine = {
         txt: '',
         size: 48,
-        y: (gMeme.lines.length === 1) ? 400 : 225,
+        y: (gMeme.lines.length === 1) ? (gCanvas.height - 100) : (gCanvas.height / 2),
         x: 250
     }
     gMeme.lines.push(newLine)
@@ -125,11 +125,12 @@ function changeLineFocus() {
 }
 
 
+
 function drawFocus() {
     var textHeight = gMeme.lines[gMeme.selectedLineIdx].y
     var fontSize = gMeme.lines[gMeme.selectedLineIdx].size
     gCtx.beginPath()
-    gCtx.rect((20), (textHeight - fontSize), (gCanvas.width - 40), (fontSize + 10))
+    gCtx.rect((20), textHeight - fontSize, (gCanvas.width - 40), fontSize + 10)
     gCtx.strokeStyle = 'black'
     gCtx.lineWidth = 5
     gCtx.stroke()
@@ -167,9 +168,9 @@ function toggleShowOptions() {
 
 function selectLine(ev) {
     toggleMouseActive()
-    const { offsetY, offsetX } = ev;
+    const {offsetY} = ev;
 
-    // console.log(offsetY, offsetX);
+
 
     var clickedLineIndex = gMeme.lines.findIndex(line => {
         return offsetY > (line.y - line.size) && offsetY < line.y
@@ -188,10 +189,6 @@ function dragText(ev) {
 
     gMeme.lines[gMeme.selectedLineIdx].x += movementX
     gMeme.lines[gMeme.selectedLineIdx].y += movementY
-
-    console.log(gMeme.lines[gMeme.selectedLineIdx].x, gMeme.lines[gMeme.selectedLineIdx].y);
-
-
 }
 
 function randomWordSize() {
@@ -199,7 +196,7 @@ function randomWordSize() {
         gWordSize[i] = getRndInteger(1, 7)
         document.getElementById(`${i}`).style.fontSize = `${1.3 + (gWordSize[i] / 10)}rem`
     }
-    console.log(gWordSize);
+
 }
 
 function calcSize(num) {
