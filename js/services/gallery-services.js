@@ -7,21 +7,7 @@ var gSavedMemes;
 var showOptions = false;
 var gisMouseDown = false;
 var gWordSize = []
-
-
-var gMeme = {
-    selectImgEl: null,
-    selectedImgId: 0,
-    selectedLineIdx: 0,
-    lines: [
-        {
-            txt: '',
-            size: 48,
-            y: 60,
-            x: 225
-        }
-    ]
-}
+var gMeme
 
 function init() {
     gSavedMemes = loadFromStorage(STORAGE_KEY)
@@ -31,7 +17,22 @@ function init() {
 
     gCanvas = document.querySelector('#main-canvas')
     gCtx = gCanvas.getContext('2d')
+}
 
+function createMemeData(el){
+    gMeme = {
+        selectImgEl: el,
+        selectedImgId: 0,
+        selectedLineIdx: 0,
+        lines: [
+            {
+                txt: '',
+                size: 48,
+                y: null,
+                x: null
+            }
+        ]
+    }
 }
 
 function drawImg(id) {
@@ -87,7 +88,7 @@ function addLine() {
         txt: '',
         size: 48,
         y: (gMeme.lines.length === 1) ? (gCanvas.height - 100) : (gCanvas.height / 2),
-        x: 250
+        x: gCanvas.width / 2
     }
     gMeme.lines.push(newLine)
     gMeme.selectedLineIdx = gMeme.lines.length - 1
@@ -102,8 +103,8 @@ function deleteLine() {
             {
                 txt: '',
                 size: calcSize(48),
-                y: 60,
-                x: 250
+                y: gCtx.canvas.height / 6,
+                x: gCtx.canvas.width / 6
             }
         ]
     }
@@ -170,14 +171,8 @@ function selectLine(ev, num) {
     toggleMouseActive()
     var offsetY;
 
-    if (num === 0) {
-        offsetY = ev.offsetY
-        console.log(offsetY);
-    }
-    if (num === 1) {
-        offsetY = ev.targetTouches[0].clientY
-        console.log(offsetY);
-    }
+    if (num === 0) { offsetY = ev.offsetY }
+    if (num === 1) { offsetY = ev.targetTouches[0].clientY }
 
     var clickedLineIndex = gMeme.lines.findIndex(line => {
         return offsetY > (line.y - line.size) && offsetY < line.y
@@ -191,7 +186,6 @@ function toggleMouseActive() {
 }
 
 function dragText(ev, num) {
-    console.log(ev);
     if (num === 0) {
         var { movementX, movementY } = ev;
         gMeme.lines[gMeme.selectedLineIdx].x += movementX

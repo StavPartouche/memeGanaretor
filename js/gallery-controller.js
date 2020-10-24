@@ -23,10 +23,11 @@ function onUpdateMemeTxt(value) {
 }
 
 function onSelectImg(el) {
-    gMeme.selectImgEl = el
     var elEditorContainer = document.querySelector('.editor-container')
     elEditorContainer.classList.remove('hide')
     elEditorContainer.classList.add('flex')
+
+    createMemeData(el)
 
     if((el.naturalWidth > 850 && el.naturalHeight > 850) || (el.naturalWidth < 300 && el.naturalHeight < 300)){
         gCtx.canvas.width = calcSize(500) 
@@ -36,6 +37,9 @@ function onSelectImg(el) {
         gCtx.canvas.width = calcSize(el.naturalWidth)
         gCtx.canvas.height = calcSize(el.naturalHeight) 
     }
+    gMeme.lines[0].x = gCtx.canvas.width / 2
+    gMeme.lines[0].y = gCtx.canvas.height / 6
+
     selectImg(el.id)
     renderCanvas()
     document.querySelector('#main-canvas').scrollIntoView()
