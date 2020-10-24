@@ -23,16 +23,15 @@ function onUpdateMemeTxt(value) {
 }
 
 function onSelectImg(el) {
-    gMeme.selectedImgEvent = el;
     var elEditorContainer = document.querySelector('.editor-container')
     elEditorContainer.classList.remove('hide')
     elEditorContainer.classList.add('flex')
 
-    if ((el.naturalWidth > 850 && el.naturalHeight > 850) || (el.naturalWidth < 300 && el.naturalHeight < 300)) {
+    if((el.naturalWidth > 850 && el.naturalHeight > 850) || (el.naturalWidth < 300 && el.naturalHeight < 300)){
         gCtx.canvas.width = 500
         gCtx.canvas.height = 500
     }
-    else {
+    else{
         gCtx.canvas.width = el.naturalWidth
         gCtx.canvas.height = el.naturalHeight
     }
@@ -66,7 +65,7 @@ function onDeleteLineClick() {
     renderCanvas()
 }
 
-function onMoveLine(num) {
+function onMoveLine(num){
     moveLine(num)
     renderCanvas()
 }
@@ -93,7 +92,7 @@ function onSaveClick() {
 
 function onSearchMeme(str, id) {
     enlargeWords(id)
-    document.getElementById(`${id}`).style.fontSize = `${1.3 + (gWordSize[id] / 10)}rem`
+    document.getElementById(`${id}`).style.fontSize = `${1.3 + (gWordSize[id]/10)}rem`
     var searchedImgs = searchMeme(str);
     renderGallery(searchedImgs)
 }
@@ -103,18 +102,18 @@ function showAllOptions() {
     var elSearchOption = document.querySelectorAll('.search-option')
     var elButton = document.querySelector('.more-btn')
     elSearchOption.forEach(elOption => {
-        if (toggle) {
+        if(toggle) {
             elOption.classList.remove('hide')
             elButton.innerText = 'Less'
         }
-        else {
+        else{
             elOption.classList.add('hide')
             elButton.innerText = 'More'
         }
     })
 }
 
-function toggleMenu() {
+function toggleMenu(){
     var elSideBarCont = document.querySelector('.side-bar-container')
     elSideBarCont.classList.toggle('show-side-bar')
     var elSideBar = document.querySelector('.side-bar')
@@ -122,32 +121,18 @@ function toggleMenu() {
 
 }
 
-function onSelectLine(ev) {
-    // ev.preventDefault()
+function onSelectLine(ev){
+    ev.preventDefault()
     selectLine(ev);
     renderCanvas();
 }
 
-function onDrag(ev) {
-    if (gisMouseDown) {
+function onDrag(ev){
+    if(gisMouseDown){
         ev.preventDefault()
         dragText(ev)
         renderCanvas();
     }
-}
-
-function onResize() {
-    if (!gMeme.selectedImgEvent) return
-    if (window.innerWidth < 850) {
-        gCtx.canvas.width = 500
-        gCtx.canvas.height = 500
-        console.log(gCtx.canvas);
-
-    } else {
-        gCtx.canvas.width = gMeme.selectedImgEvent.naturalWidth
-        gCtx.canvas.height = gMeme.selectedImgEvent.naturalHeight
-    }
-    renderCanvas()
 }
 
 

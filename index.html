@@ -6,7 +6,7 @@
     <title>Meme Generator</title>
     <link rel="stylesheet" href="css/gallery.css">
 </head>
-<body onload="onInit()" onresize="onResize()">
+<body onload="onInit()">
     
     <header>
         <div class="header-container container flex">
@@ -50,7 +50,7 @@
             <div class="canvas-container ">
                 <canvas id="main-canvas" onmousedown="onSelectLine(event)" 
                 onmouseup="toggleMouseActive()" onmousemove="onDrag(event)" ontouchstart="onSelectLine(event)"
-                ontouchend="toggleMouseActive()" ontouchmove="onDrag(event)" ></canvas>
+                ontouchend="toggleMouseActive()" ontouchmove="onDrag(event)"></canvas>
             </div>
         
             <div class="editor flex">
