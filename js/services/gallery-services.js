@@ -1,4 +1,4 @@
-const gMemeFont = 'Impact'
+const gMemeFont = 'Impact, Haettenschweiler, Arial Narrow Bold, sans-serif'
 const STORAGE_KEY = 'memesDB';
 
 var gCanvas;
