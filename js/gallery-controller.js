@@ -136,7 +136,7 @@ function onSelectLine(ev ,num){
 }
 
 function onDrag(ev, num){
-    if(gisMouseDown){
+    if(gIsMouseDown){
         ev.preventDefault()
         dragText(ev, num)
         renderCanvas();

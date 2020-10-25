@@ -5,7 +5,7 @@ var gCanvas;
 var gCtx;
 var gSavedMemes;
 var showOptions = false;
-var gisMouseDown = false;
+var gIsMouseDown = false;
 var gWordSize = []
 var gMeme
 
@@ -188,7 +188,7 @@ function selectLine(ev, num) {
 }
 
 function toggleMouseActive() {
-    gisMouseDown = !gisMouseDown
+    gIsMouseDown = !gIsMouseDown
 }
 
 function dragText(ev, num) {
