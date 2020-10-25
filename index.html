@@ -55,29 +55,29 @@
         
             <div class="editor flex">
                 <input class="txt-input" type="text" onchange="onUpdateMemeTxt(this, value)">
-                <div class="">
+                <div class="colored-btn">
                     <button class="change-line-btn" onclick="onChangeLineFocus()"><img class="arrow-icon" src="./img/icons/arrow-up.png" alt=""><img class="arrow-icon" src="./img/icons/arrow-down.png" alt=""></button>
                     <button class="add-line-btn" onclick="onAddLineClick()">+</button>
                     <button class="delete-line-btn" onclick="onDeleteLineClick()"><img class="trash-icon" src="./img/icons/trash.png" alt=""></button>
                 </div>
-                <div>
+                <div class="white-btn">
                     <button class="font-size-btn" onclick="onChangeFontSize(1)"><span>A</span>+</button>
                     <button class="font-size-btn" onclick="onChangeFontSize(0)"><span>A</span>-</button>
                     <button class="txt-loc-btn"  onclick="onChangeLineLoc(1)">↑</button>
                     <button class="txt-loc-btn" onclick="onChangeLineLoc(0)">↓</button>
                 </div>
-                <div>
+                <div class="white-btn">
                     <button class="lines-btn" onclick="onMoveLine(0)"><img src="./img/icons/lines-left.png" alt=""></button>
                     <button class="lines-btn" onclick="onMoveLine(1)"><img src="./img/icons/lines-center.png" alt=""></button>
                     <button class="lines-btn" onclick="onMoveLine(2)"><img src="./img/icons/lines-right.png" alt=""></button>
                 </div>
                 <div>
-                    <a class="download-btn" href="#" onclick="onDownloadClick(this)" download="">Download</a>
-                    <button class="save-btn" onclick="onSaveClick()">Save</button>
+                    <a class="bottom-btns download-btn" href="#" onclick="onDownloadClick(this)" download="">Download</a>
+                    <button class="bottom-btns save-btn" onclick="onSaveClick()">Save</button>
                 </div>
                 <form class="publish-form" action="" method="POST" enctype="multipart/form-data" onsubmit="uploadImg(this, event)">
                     <input name="img" id="imgData" type="hidden" />
-                    <button class="btn publish-btn" type="submit">Publish</button>
+                    <button class="bottom-btns btn publish-btn" type="submit">Publish</button>
                     <div class="share-container"></div>
                   </form>
             </div>

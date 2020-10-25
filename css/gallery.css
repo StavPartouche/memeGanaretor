@@ -15,7 +15,7 @@
 
 html {
   box-sizing: border-box;
-  scroll-behavior:smooth;
+  scroll-behavior: smooth;
 }
 
 body {
@@ -30,11 +30,11 @@ img {
   cursor: pointer;
 }
 
-button{
+button {
   cursor: pointer;
 }
 
-a{
+a {
   cursor: pointer;
 }
 
@@ -98,7 +98,7 @@ a{
   text-transform: uppercase;
 }
 
-.side-bar-btn{
+.side-bar-btn {
   border: none;
   background-color: transparent;
   font-size: 1.5rem;
@@ -107,7 +107,7 @@ a{
   font-weight: 800;
 }
 
-.side-bar{
+.side-bar {
   flex-direction: column;
   position: fixed;
   height: 100vh;
@@ -121,7 +121,7 @@ a{
   transition: 0.4s;
 }
 
-.side-bar-container{
+.side-bar-container {
   background-color: rgba(0, 0, 0, 0.459);
   position: fixed;
   height: 100vh;
@@ -133,7 +133,7 @@ a{
   transition: 0.01s;
 }
 
-.side-bar a{
+.side-bar a {
   text-decoration: none;
   margin: 11px;
   color: #ffffff;
@@ -147,7 +147,7 @@ a{
   padding: 20px 0;
 }
 
-.show-side-bar{
+.show-side-bar {
   transform: translateX(0%);
 }
 
@@ -179,7 +179,6 @@ a{
 
 .word-list {
   width: 400px;
-  /* height: 38px; */
   box-shadow: 0 3px 6px 1px rgba(0, 0, 0, 0.15);
   border-radius: 25px;
   background-color: #6b6161;
@@ -260,12 +259,15 @@ canvas {
   box-shadow: 1px 5px 0 #bbc4d1, inset 0 5px 0 #ffffff;
 }
 
-.change-line-btn {
+.colored-btn button {
   width: 56px;
   height: 47px;
-  box-shadow: 1px 5px 0 #048b97, inset 0 5px 0 rgba(255, 255, 255, 0.58);
   border-radius: 10px;
   background-color: #ebeef3;
+}
+
+.change-line-btn {
+  box-shadow: 1px 5px 0 #048b97, inset 0 5px 0 rgba(255, 255, 255, 0.58);
   background-image: linear-gradient(
     -38deg,
     #66c4dc 0%,
@@ -274,131 +276,96 @@ canvas {
   );
 }
 
-.arrow-icon {
-  height: 29px;
-  width: 17px;
-}
-
 .add-line-btn {
   font-size: 2.5rem;
-  width: 46px;
-  height: 46px;
   box-shadow: 1px 5px 0 #015d33, inset 0 5px 0 rgba(255, 255, 255, 0.58);
-  border-radius: 10px;
-  background-color: #ebeef3;
   background-image: linear-gradient(-38deg, #42eb5c 0%, #37b34a 100%);
   color: white;
   font-weight: 700;
 }
 
-.font-size-btn {
-  width: 56px;
-  height: 51px;
-  box-shadow: 1px 5px 0 rgba(92, 92, 92, 0.55),
-    inset 0 5px 0 rgba(255, 255, 255, 0.58);
-  border-radius: 10px;
-  background-color: #ffffff;
-  font-weight: 500;
-}
-
-.font-size-btn span {
-  font-size: 1.3rem;
-}
-
-.txt-loc-btn {
-  width: 56px;
-  height: 51px;
-  box-shadow: 1px 5px 0 rgba(92, 92, 92, 0.55),
-    inset 0 5px 0 rgba(255, 255, 255, 0.58);
-  border-radius: 10px;
-  background-color: #ffffff;
-  font-weight: 500;
-  font-size: 1.3rem;
-}
-
-.lines-btn img {
-  width: 30px;
-  height: 30px;
-  
-}
-
-.lines-btn{
-  width: 56px;
-  height: 51px;
-  background-color: #ffffff;
-  box-shadow: 1px 5px 0 rgba(92, 92, 92, 0.55),
-    inset 0 5px 0 rgba(255, 255, 255, 0.58);
-  border-radius: 10px;
-}
-
-.download-btn {
-  text-align: center;
-  text-decoration: none;
-  color: white;
-  width: 130px;
-  height: 30px;
-  box-shadow: 1px 6px 0 #632687, inset 0 1px 0 #ffffff;
-  border-radius: 15px;
-  background-color: #8f44bb;
-  font-family: Poppins300;
-  padding: 5px;
-  font-size: 0.9rem;
-}
-
-.save-btn{
-  text-align: center;
-  text-decoration: none;
-  color: white;
-  width: 95px;
-  height: 33px;
-  box-shadow: 1px 6px 0 #c27f1b, inset 0 1px 0 #ffffff;
-  border-radius: 15px;
-  background-color: #e4951e;
-  font-family: Poppins300;
-  padding: 5px;
-}
-
-.publish-form{
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-
-.publish-btn{
-  text-align: center;
-  text-decoration: none;
-  color: white;
-  width: 95px;
-  height: 33px;
-  box-shadow: 1px 6px 0 #1b2cc2, inset 0 1px 0 #ffffff;
-  border-radius: 15px;
-  background-color: #3c1ee4;
-  font-family: Poppins300;
-  padding: 5px;
-  margin-bottom: 5px;
-}
-
-.share-btn{
-  font-size: 1.3rem;
-    text-align: center;
-    color: white;
-    border-radius: 15px;
-    font-family: Poppins300;
-    padding: 5px;
-}
-
-.delete-line-btn{
-  width: 46px;
-height: 46px;
-box-shadow: 1px 5px 0 #8c0606, inset 0 5px 0 rgba(255, 255, 255, 0.58);
-border-radius: 10px;
-background-color: #ebeef3;
-background-image: linear-gradient(-38deg, #cf1d37 0%, #cf1d37 1%, #f05036 100%);
+.delete-line-btn {
+  box-shadow: 1px 5px 0 #8c0606, inset 0 5px 0 rgba(255, 255, 255, 0.58);
+  background-image: linear-gradient(
+    -38deg,
+    #cf1d37 0%,
+    #cf1d37 1%,
+    #f05036 100%
+  );
 }
 
 .trash-icon {
   height: 29px;
   width: 17px;
+}
+
+.white-btn button {
+  width: 56px;
+  height: 51px;
+  border-radius: 10px;
+  box-shadow: 1px 5px 0 rgba(92, 92, 92, 0.55),
+    inset 0 5px 0 rgba(255, 255, 255, 0.58);
+  background-color: #ffffff;
+  font-weight: 500;
+  font-size: 1.3rem;
+}
+
+.arrow-icon {
+  height: 29px;
+  width: 17px;
+}
+
+.font-size-btn span {
+  font-size: 1.5rem;
+}
+
+.lines-btn img {
+  width: 30px;
+  height: 30px;
+}
+
+.bottom-btns {
+  text-align: center;
+  text-decoration: none;
+  color: white;
+  width: 95px;
+  height: 33px;
+  border-radius: 15px;
+  font-family: Poppins300;
+  padding: 5px;
+}
+
+.download-btn {
+  width: 130px;
+  height: 30px;
+  box-shadow: 1px 6px 0 #632687, inset 0 1px 0 #ffffff;
+  background-color: #8f44bb;
+  font-size: 0.9rem;
+}
+
+.save-btn {
+  box-shadow: 1px 6px 0 #c27f1b, inset 0 1px 0 #ffffff;
+  background-color: #e4951e;
+}
+
+.publish-btn {
+  box-shadow: 1px 6px 0 #1b2cc2, inset 0 1px 0 #ffffff;
+  background-color: #3c1ee4;
+  margin-bottom: 5px;
+}
+
+.share-btn {
+  font-size: 1.3rem;
+  text-align: center;
+  color: white;
+  border-radius: 15px;
+  font-family: Poppins300;
+  padding: 5px;
+}
+.publish-form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 /* footer */
@@ -423,35 +390,35 @@ background-image: linear-gradient(-38deg, #cf1d37 0%, #cf1d37 1%, #f05036 100%);
   }
 }
 
-@media (max-width: 600px){
-
-  .side-bar-btn{
+@media (max-width: 600px) {
+  .side-bar-btn {
     display: block;
   }
 
-  .main-nav{
+  .main-nav {
     display: none;
   }
-  
-  .header-container{
+
+  .header-container {
     width: 100%;
   }
 
-  .search-container{
+  .search-container {
     flex-wrap: wrap;
     height: 200px;
   }
-  .search-bar, .word-list, .more-btn{
+  .search-bar,
+  .word-list,
+  .more-btn {
     margin-bottom: 10px;
     margin-left: 0;
   }
 
-  .gallery-container{
+  .gallery-container {
     margin-left: 83px;
   }
 
-  .change-line-btn{
+  .change-line-btn {
     width: 58px;
   }
-
 }
