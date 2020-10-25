@@ -94,6 +94,11 @@ function onSaveClick() {
         drawText()
         saveMeme();
     }
+    var elModal = document.querySelector('.saved-modal')
+    elModal.classList.add('show-modal')
+    setTimeout(() =>{
+        elModal.classList.remove('show-modal')
+    }, 3000)
 }
 
 function onSearchMeme(str, id = null) {
@@ -106,11 +111,11 @@ function onSearchMeme(str, id = null) {
 }
 
 function showAllOptions() {
-    var toggle = toggleShowOptions()
+    toggleShowOptions()
     var elSearchOption = document.querySelectorAll('.search-option')
     var elButton = document.querySelector('.more-btn')
     elSearchOption.forEach(elOption => {
-        if(toggle) {
+        if(gIsShowOptions) {
             elOption.classList.remove('hide')
             elButton.innerText = 'Less'
         }

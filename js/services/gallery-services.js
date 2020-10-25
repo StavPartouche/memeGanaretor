@@ -4,7 +4,7 @@ const STORAGE_KEY = 'memesDB';
 var gCanvas;
 var gCtx;
 var gSavedMemes;
-var showOptions = false;
+var gIsShowOptions = false;
 var gIsMouseDown = false;
 var gWordSize = []
 var gMeme
@@ -165,8 +165,7 @@ function enlargeWords(id) {
 }
 
 function toggleShowOptions() {
-    showOptions = !showOptions
-    return showOptions
+    gIsShowOptions = !gIsShowOptions
 }
 
 function selectLine(ev, num) {
