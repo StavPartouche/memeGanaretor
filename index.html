@@ -54,7 +54,7 @@
             </div>
         
             <div class="editor flex">
-                <input class="txt-input" type="text" onchange="onUpdateMemeTxt(value)">
+                <input class="txt-input" type="text" onchange="onUpdateMemeTxt(this, value)">
                 <div class="">
                     <button class="change-line-btn" onclick="onChangeLineFocus()"><img class="arrow-icon" src="./img/icons/arrow-up.png" alt=""><img class="arrow-icon" src="./img/icons/arrow-down.png" alt=""></button>
                     <button class="add-line-btn" onclick="onAddLineClick()">+</button>
@@ -97,7 +97,7 @@
     <script src="js/services/storage-service.js"></script>
     <script src="js/services/util-service.js"></script>
     <script src="js/services/upload-download-service.js"></script>
-    <script src="js/services/imgsDataBase.js"></script>
+    <script src="js/services/imgs-data-base.js"></script>
     <script src="js/services/gallery-services.js"></script>
     <script src="js/gallery-controller.js"></script>
 </body>

@@ -146,10 +146,12 @@ function saveMeme() {
 function searchMeme(str) {
     if (str === '') return gImgs;
 
+    var lowerStr = str.toLowerCase()
+
     var selectedMemes = [];
     gImgs.forEach(img => {
         img.keywords.forEach(word => {
-            if (word.includes(str)) {
+            if (word.includes(lowerStr)) {
                 selectedMemes.push(img)
                 return
             }
@@ -171,8 +173,12 @@ function selectLine(ev, num) {
     toggleMouseActive()
     var offsetY;
 
+
     if (num === 0) { offsetY = ev.offsetY }
-    if (num === 1) { offsetY = ev.targetTouches[0].clientY }
+    if (num === 1) { 
+        var canvasTop = document.getElementById('main-canvas').offsetTop;
+        offsetY = ev.targetTouches[0].pageY - canvasTop
+     }
 
     var clickedLineIndex = gMeme.lines.findIndex(line => {
         return offsetY > (line.y - line.size) && offsetY < line.y
@@ -192,8 +198,10 @@ function dragText(ev, num) {
         gMeme.lines[gMeme.selectedLineIdx].y += movementY
     }
     if (num === 1){
-        var touchX = ev.targetTouches[0].clientX
-        var touchY = ev.targetTouches[0].clientY
+        const canvasTop = document.getElementById('main-canvas').offsetTop
+        const canvasLeft = document.getElementById('main-canvas').offsetLeft;
+        var touchX = ev.targetTouches[0].pageX - canvasLeft;
+        var touchY = ev.targetTouches[0].pageY - canvasTop;
         gMeme.lines[gMeme.selectedLineIdx].x = touchX
         gMeme.lines[gMeme.selectedLineIdx].y = touchY
     }

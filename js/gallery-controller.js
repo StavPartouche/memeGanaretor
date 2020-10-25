@@ -17,8 +17,9 @@ function renderGallery(imgs) {
     elGallery.innerHTML = strHtml
 }
 
-function onUpdateMemeTxt(value) {
+function onUpdateMemeTxt(elInput, value) {
     updateMemeTxt(value);
+    elInput.value = '';
     renderCanvas()
 }
 
@@ -95,9 +96,11 @@ function onSaveClick() {
     }
 }
 
-function onSearchMeme(str, id) {
-    enlargeWords(id)
-    document.getElementById(`${id}`).style.fontSize = `${1.3 + (gWordSize[id]/10)}rem`
+function onSearchMeme(str, id = null) {
+    if(id){
+        enlargeWords(id)
+        document.getElementById(`${id}`).style.fontSize = `${1.3 + (gWordSize[id]/10)}rem`
+    }
     var searchedImgs = searchMeme(str);
     renderGallery(searchedImgs)
 }
