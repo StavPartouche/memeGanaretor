@@ -156,7 +156,7 @@ a {
   position: fixed;
   background-color: #49b0ca;
   width: 200px;
-  height: 95px;
+  height: auto;
   top: 0;
   left: 0;
   transform: translateX(-100%);
@@ -203,6 +203,7 @@ a {
 
 .word-list {
   width: 400px;
+  height: auto;
   box-shadow: 0 3px 6px 1px rgba(0, 0, 0, 0.15);
   border-radius: 25px;
   background-color: #6b6161;

@@ -17,10 +17,13 @@ function renderGallery(imgs) {
     elGallery.innerHTML = strHtml
 }
 
-function onUpdateMemeTxt(elInput, value) {
+function onUpdateMemeTxt(value) {
     updateMemeTxt(value);
-    elInput.value = '';
     renderCanvas()
+}
+
+function onExitInput(elInput){
+    elInput.value = '';
 }
 
 function onSelectImg(el) {

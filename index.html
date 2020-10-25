@@ -36,7 +36,7 @@
 
     <main class="main-container container">
         <section class="search-container flex">
-            <input class="search-bar" onchange="onSearchMeme(value)" type="text" placeholder="Search">
+            <input class="search-bar" onkeypress="onSearchMeme(value)" type="text" placeholder="Search">
                 <ul class="word-list flex clean-list">
                     <li id="0" onclick="onSearchMeme('funny', id)">funny</li>
                     <li id="1" onclick="onSearchMeme('smile', id)">smile</li>
@@ -58,7 +58,7 @@
             </div>
         
             <div class="editor flex">
-                <input class="txt-input" type="text" onchange="onUpdateMemeTxt(this, value)">
+                <input class="txt-input" type="text" onchange="onExitInput(this)" onkeypress="onUpdateMemeTxt(value)">
                 <div class="colored-btn">
                     <button class="change-line-btn" onclick="onChangeLineFocus()"><img class="arrow-icon" src="./img/icons/arrow-up.png" alt=""><img class="arrow-icon" src="./img/icons/arrow-down.png" alt=""></button>
                     <button class="add-line-btn" onclick="onAddLineClick()">+</button>
